@@ -1,4 +1,5 @@
 {
+  "homepage": "https://W3ndig0u0.github.io/ToDO",
   "name": "todo",
   "version": "0.1.0",
   "private": true,
@@ -13,9 +14,9 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": { 
-    "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,7 +40,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3",
-    "homepage": "https://github.com/W3ndig0u0/ToDO"
+    "gh-pages": "^3.2.3"
   }
 }
