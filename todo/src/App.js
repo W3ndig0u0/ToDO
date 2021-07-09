@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Todo from './Todo';
 import ToDoList from './ToDoList';
 
 
@@ -55,8 +54,6 @@ function App() {
     const newTodos = todos.filter(todo => !todo.complete);
     setTodos(newTodos);
   }
-
-
 
   return(
   <>
