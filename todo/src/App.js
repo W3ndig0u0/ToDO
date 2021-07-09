@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ToDoList from './ToDoList';
+import './App.css';
 
 
 function App() {
@@ -55,13 +56,40 @@ function App() {
     setTodos(newTodos);
   }
 
+  function toDoHtml(){
+    if (todos.length == 0) {
+      console.log(todos);
+      return ( <p> 0 ToDo's Left! :D</p> )
+    } else {
+      return (
+      <>
+        <p> {todos.filter(todo => !todo.complete).length} ToDo's Left</p>
+        <hr></hr>
+        <ToDoList todos = { todos } toggleTodo = { toggleTodo }/> 
+      </>)
+    }
+  }
+
+
   return(
   <>
-    <ToDoList todos = { todos } toggleTodo = { toggleTodo }/>
-      <input ref= {todoNameRef} type="text" className="TextInput"/>
-      <button onClick = { handleAddTodo } className="btn addToDo">Add ToDo</button>
-      <button onClick = { handleClearTodo } className="btn clearToDo">Clear ToDo</button>
-      <p> {todos.filter(todo => !todo.complete).length} To do left</p>
+
+    
+    <h2>W3ndig0u0's ToDo</h2>
+      <div className="group">      
+        <input ref= {todoNameRef} required type="text" className="TextInput"/>
+        <span className="highlight"></span>
+        <span className="bar"></span>
+        <label className="textLabel">Write Next ToDo</label>
+      </div>
+
+      <button onClick = { handleAddTodo } className="addToDo">Add ToDo</button>
+      <button onClick = { handleClearTodo } className="clearToDo">Clear ToDo</button>
+
+      <div className ="todoList" >
+        {toDoHtml()}
+      </div>
+
   </>
   )
 }

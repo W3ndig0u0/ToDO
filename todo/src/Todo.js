@@ -7,13 +7,12 @@ export default function Todo({ todo, toggleTodo }) {
   }
 
   return (
-    <div>
-      <label>
-        <input type="checkbox" checked={todo.complete} onChange={HandleTodoClick} />
-        Task = { todo.name }
-        -
-        Id = { todo.id}
+      <label className="tasks">
+        <input className="checkbox" type="checkbox" checked={todo.complete} onChange={HandleTodoClick} />
+        <span class="checkmark"></span>
+          <span className="taskText" >
+            Task = { todo.name }
+          </span>
       </label>
-    </div>
   )
 }

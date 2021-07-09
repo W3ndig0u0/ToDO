@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: #757575; */
+  overflow: hidden;
+  font-family: "Lato", sans-serif;
+  user-select: none;
+}
+
+button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  border: none;
+  color: white;
+  padding: 14px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 8px 12px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.addToDo {
+  background-color: #008bff;
+}
+
+p {
+  text-align: center;
+  font-size: 22px;
+}
+
+#root {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.todoList {
+  background: #fff;
+  font-size: 20px;
+  width: 20rem;
+  margin: auto;
+  padding: 1rem;
+  max-height: 50vh;
+  margin-top: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+.todoList::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.todoList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.todoList::-webkit-scrollbar-thumb {
+  background: #008bff;
+  border-radius: 50px;
+  height: 0.5rem;
+}
+
+.tasks {
+  position: relative;
+  display: block;
+  padding: 1em;
+  margin: 0 auto;
+  cursor: pointer;
+  color: black;
+  border-bottom: solid 1px #ddd;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  letter-spacing: 2px;
+}
+
+.tasks:last-of-type {
+  border-bottom: solid 0px #ddd;
+}
+
+.tasks .taskText {
+  margin-left: 2rem;
+  word-break: break-all;
+}
+
+.tasks .checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  margin: 0 auto;
+  height: 25px;
+  width: 25px;
+  background-color: #a2acbd;
+  border-radius: 50%;
+  transition: 400ms;
+}
+
+.tasks:hover .checkbox ~ .checkmark {
+  background-color: #00e0e7;
+}
+
+.tasks .checkbox:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.tasks .checkbox:checked ~ .checkmark:after {
+  display: block;
+}
+
+.tasks .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 32px;
+}
+
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.TextInput {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+.TextInput:focus {
+  outline: none;
+}
+
+.textLabel {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.TextInput:focus ~ .textLabel,
+.TextInput:valid ~ .textLabel {
+  top: -20px;
+  font-size: 14px;
+  color: #5264ae;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264ae;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+.TextInput:focus ~ .bar:before,
+.TextInput:focus ~ .bar:after {
+  width: 50%;
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.TextInput:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
